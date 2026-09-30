@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Events — Player 2</title>
+<meta name="description" content="Player 2 tournaments and events for members — real competition, real gift card prizes, in a safe and friendly gaming space.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0a'/%3E%3Ctext x='32' y='45' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='34' text-anchor='middle' fill='%23CC0000'%3EP2%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Player 2">
+<meta property="og:title" content="Player 2 Events — Get the Esports Experience">
+<meta property="og:description" content="Player 2 tournaments and events for members — real competition, real gift card prizes, in a safe and friendly gaming space.">
+<meta property="og:url" content="https://player2levelup.github.io/events.html">
+<meta property="og:image" content="https://player2levelup.github.io/player2_share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html"><span>PLAYER</span> 2</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="rory.html">Meet Rory</a></li>
+    <li><a href="index.html#membership">Membership</a></li>
+    <li><a href="index.html#sessions">Sessions</a></li>
+    <li><a href="events.html" aria-current="page">Events</a></li>
+    <li><a href="https://whop.com/player2" target="_blank" rel="noopener" class="nav-cta">Join Now</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div>
+    <p class="hero-eyebrow">Player 2 Events</p>
+    <h1 class="page-title">Get the <span class="line-red">Esports Experience</span></h1>
+    <p class="page-lede">Tournaments for Player 2 members, with real competition and real prizes in a safe, friendly space. You don't have to be heading pro to feel what it's like.</p>
+    <div class="hero-buttons">
+      <a href="https://whop.com/player2" target="_blank" rel="noopener" class="btn-primary">Join to Enter</a>
+      <a href="#how" class="btn-secondary">How It Works</a>
+    </div>
+  </div>
+  <div class="page-hero-visual">
+    <div class="ticket" role="img" aria-label="Example event ticket: Fortnite tournament, solos or duos, £10 entry, gift card prize fund, members only">
+      <div class="ticket-main">
+        <span class="ticket-tag">Example event</span>
+        <div class="ticket-title">Fortnite <span>Tournament</span></div>
+        <dl class="ticket-rows">
+          <div><dt>Format</dt><dd>Solos or Duos</dd></div>
+          <div><dt>Entry</dt><dd>£10 online ticket</dd></div>
+          <div><dt>Prizes</dt><dd>Gift card prize fund</dd></div>
+          <div><dt>Who</dt><dd>Player 2 members</dd></div>
+        </dl>
+      </div>
+      <div class="ticket-stub"><span class="p2">P2</span><span class="admit">Admit one</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section alt" id="how">
+  <div class="section-head">
+    <p class="section-eyebrow">How It Works</p>
+    <h2 class="section-title">From Ticket to Prize</h2>
+    <p>Events run on the five core games on the Player 2 server, with Fortnite one of the most popular, and they'll expand to more games over time.</p>
+  </div>
+  <ol class="steps">
+    <li><strong>Be a Member</strong><p>Events are for Player 2 subscription members. Some tiers come with event perks, and Platinum gets early access.</p></li>
+    <li><strong>Grab a Ticket</strong><p>Enter with an online ticket. Tournaments like Fortnite Solos and Duos are £10 to enter.</p></li>
+    <li><strong>Play</strong><p>Compete solo or with a duo partner, in a safe space Rory looks after.</p></li>
+    <li><strong>Win</strong><p>Real prize funds, paid out in gift cards. A proper esports feel.</p></li>
+  </ol>
+</section>
+
+<!-- UPCOMING -->
+<section class="section" id="upcoming">
+  <div class="section-head">
+    <p class="section-eyebrow">What's On</p>
+    <h2 class="section-title">Upcoming Events</h2>
+  </div>
+  <div class="event-list" id="eventList"></div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <p class="section-eyebrow">Want In?</p>
+  <h2 class="section-title">Join to Enter</h2>
+  <p>Events are for members. Join Player 2 to enter tournaments and be the first to hear about new dates.</p>
+  <div class="cta-buttons">
+    <a href="https://whop.com/player2" target="_blank" rel="noopener" class="btn-primary">Join Now</a>
+    <a href="index.html#membership" class="btn-secondary">See Plans</a>
+  </div>
+</section>
+
+<script>
+  /* ── ADD EVENTS HERE ─────────────────────────────────────────────
+     Copy the example block, take away the // at the start of each line,
+     fill it in and save. Events are sorted by date, and past events
+     hide themselves automatically.
+
+  {
+    date: '2026-11-14',              // YYYY-MM-DD
+    time: '7pm UK time',
+    title: 'Fortnite Duos Tournament',
+    details: 'Duos · Gift card prize fund',
+    price: '£10',
+    ticketUrl: 'https://whop.com/player2'
+  },
+  */
+  const EVENTS = [
+  ];
+
+  (function () {
+    const list = document.getElementById('eventList');
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const upcoming = EVENTS
+      .map(e => ({ ...e, when: new Date(e.date + 'T12:00:00') }))
+      .filter(e => !isNaN(e.when) && e.when >= today)
+      .sort((a, b) => a.when - b.when);
+
+    if (!upcoming.length) {
+      list.innerHTML = `
+        <div class="event-empty">
+          <strong>No dates announced yet</strong>
+          <p>New events are announced in the Player 2 Discord first. Join to be the first to hear.</p>
+          <a href="https://whop.com/player2" target="_blank" rel="noopener" class="btn-primary">Join Player 2</a>
+        </div>`;
+      return;
+    }
+    const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    list.innerHTML = upcoming.map(e => `
+      <article class="event-card">
+        <div class="event-date">
+          <span class="dow">${e.when.toLocaleDateString('en-GB', { weekday: 'short' })}</span>
+          <span class="day">${e.when.getDate()}</span>
+          <span class="mon">${e.when.toLocaleDateString('en-GB', { month: 'short' })}</span>
+        </div>
+        <div class="event-info">
+          <strong>${esc(e.title)}</strong>
+          <p>${esc([e.time, e.details].filter(Boolean).join(' · '))}</p>
+        </div>
+        <div class="event-buy">
+          <span class="event-price">${esc(e.price)}</span>
+          <a class="btn-primary btn-small" href="${esc(e.ticketUrl || 'https://whop.com/player2')}" target="_blank" rel="noopener">Get Tickets</a>
+        </div>
+      </article>`).join('');
+  })();
+</script>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span>PLAYER</span> 2</div>
+  <p>© 2026 Player 2 · <a href="mailto:player2levelup@gmail.com">player2levelup@gmail.com</a></p>
+  <p>Safe Gaming Community &amp; One-2-One Sessions · <a href="https://whop.com/player2" target="_blank" rel="noopener">whop.com/player2</a></p>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
