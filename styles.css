@@ -774,6 +774,12 @@ footer p {
 .signup-thanks p { color: var(--grey-lt); }
 @media (max-width: 600px) { .signup-fields { grid-template-columns: 1fr; } }
 
+.event-signup { max-width: 560px; margin: 26px auto 0; text-align: left; }
+.event-empty .signup-thanks { padding: 10px 0 0; }
+.event-empty .signup-thanks strong { display: block; font-size: 1.3rem; margin-bottom: 6px; }
+
+.tier-tag { color: var(--grey-lt); font-size: 0.92rem; line-height: 1.4; margin: -6px 0 18px; min-height: 2.8em; }
+
 /* ─── SHARED EXTRAS ─────────────────────────────────────────────── */
 section[id] { scroll-margin-top: 72px; }
 
