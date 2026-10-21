@@ -59,10 +59,11 @@ nav {
   text-decoration: none;
 }
 .nav-logo span { color: var(--white); }
+.nav-logo em, .footer-logo em { font-style: normal; color: var(--white); font-weight: 700; font-size: 0.66em; letter-spacing: 0.12em; margin-left: 0.35em; vertical-align: 0.08em; }
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 26px;
   list-style: none;
 }
 .nav-links a {
