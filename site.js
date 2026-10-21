@@ -24,6 +24,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+/* Rory's age from his date of birth */
+(function(){var e=document.getElementById('roryAge');if(!e)return;var d=new Date(2007,11,4),n=new Date(),a=n.getFullYear()-d.getFullYear();if(n.getMonth()<11||(n.getMonth()===11&&n.getDate()<4))a--;e.textContent=a;})();
+
 /* ---------- hero animation: remote click, TV glare, controller glow ---------- */
 (function () {
   var root = document.getElementById('heroAnim');
