@@ -52,8 +52,31 @@
       <a href="#membership" class="btn-secondary">See Plans</a>
     </div>
   </div>
-  <div class="hero-image">
-    <img src="mascot.webp" width="780" height="1047" alt="Player 2 mascot — hooded gamer with a controller, sitting on a red bean bag">
+  <div class="hero-image hero-anim" id="heroAnim" aria-label="The Player 2 mascot sits on his red bean bag in the dark, switches on the TV with a remote and lights up red as his controller glows" role="img">
+    <div class="ha-glow" id="haGlow"></div>
+    <div class="ha-glow blue" id="haGlowB"></div>
+    <div class="ha-glare" id="haGlare"></div>
+    <div class="ha-char" id="haChar">
+      <img id="haMascot" src="mascot.webp" width="780" height="1047" alt="">
+      <div class="ha-tint red" id="haTintR"></div>
+      <div class="ha-tint blue" id="haTintB"></div>
+      <svg class="ha-arm" viewBox="0 0 780 1047" aria-hidden="true">
+        <g id="haArm" opacity="0">
+          <path id="haArmPath" d="M505,430 L540,560 L560,560" fill="none" stroke="#000" stroke-width="46" stroke-linecap="round" stroke-linejoin="round"/>
+          <path id="haArmPath2" d="M505,430 L540,560 L560,560" fill="none" stroke="#111113" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+          <g id="haHand">
+            <circle cx="0" cy="0" r="32" fill="#000"/><circle cx="0" cy="0" r="25" fill="#111113"/>
+            <g transform="rotate(-14)">
+              <rect x="-14" y="-70" width="34" height="120" rx="13" fill="#000"/>
+              <rect x="-9" y="-65" width="24" height="110" rx="10" fill="#2a2a2e"/>
+              <circle id="haBtn" cx="3" cy="-48" r="6" fill="#cc0000"/>
+              <rect x="-2" y="-8" width="10" height="4" rx="2" fill="#3a3a3f"/><rect x="-2" y="2" width="10" height="4" rx="2" fill="#3a3a3f"/><rect x="-2" y="12" width="10" height="4" rx="2" fill="#3a3a3f"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+      <div class="ha-pad" id="haPad"></div>
+    </div>
   </div>
 </section>
 

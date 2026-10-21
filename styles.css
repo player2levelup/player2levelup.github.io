@@ -1378,3 +1378,21 @@ footer a:hover { text-decoration: underline; }
 
 .price-line { display: flex; align-items: baseline; gap: 10px; margin: -8px 0 20px; color: var(--grey-lt); font-size: 0.95rem; }
 .price-big { font-family: var(--font-display); font-weight: 900; font-size: 2.4rem; line-height: 1; color: var(--red); font-variant-numeric: tabular-nums; }
+
+/* ---------- hero animation ---------- */
+.hero-anim { position: relative; z-index: 2; display: flex; justify-content: center; align-items: flex-end; min-height: 420px; isolation: isolate; }
+.hero-anim .ha-glow { position: absolute; left: -30%; right: -30%; top: -20%; bottom: -10%; background: radial-gradient(ellipse 50% 55% at 50% 60%, rgba(220,20,20,.55), rgba(160,0,0,.22) 45%, rgba(0,0,0,0) 72%); opacity: 0; mix-blend-mode: screen; pointer-events: none; }
+.hero-anim .ha-glow.blue { background: radial-gradient(ellipse 42% 50% at 52% 55%, rgba(60,120,255,.35), rgba(30,60,200,.12) 45%, rgba(0,0,0,0) 72%); }
+.hero-anim .ha-glare { position: absolute; left: -20%; right: -20%; top: 10%; bottom: -30%; background: radial-gradient(ellipse 50% 40% at 50% 90%, rgba(255,255,255,.5), rgba(190,200,255,.16) 40%, rgba(0,0,0,0) 70%); opacity: 0; mix-blend-mode: screen; pointer-events: none; }
+.hero-anim .ha-char { position: relative; width: 100%; max-width: 440px; aspect-ratio: 780 / 1047; transform-origin: 50% 94%; }
+.hero-anim .ha-char img, .hero-anim .ha-tint, .hero-anim .ha-arm { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-anim .ha-char img { filter: brightness(.22) saturate(.7); animation: none; }
+.hero-anim .ha-tint { -webkit-mask-image: url(lightmask.webp); mask-image: url(lightmask.webp); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; mix-blend-mode: screen; opacity: 0; }
+.hero-anim .ha-tint.red { background: radial-gradient(ellipse 85% 75% at 50% 56%, rgba(255,32,28,.95), rgba(255,20,20,.55) 60%, rgba(255,0,0,.22) 92%); }
+.hero-anim .ha-tint.blue { background: radial-gradient(ellipse 55% 45% at 60% 55%, rgba(110,160,255,.75), rgba(60,110,255,.22) 60%, rgba(0,0,0,0) 85%); }
+.hero-anim .ha-pad { position: absolute; left: 63.7%; top: 51.9%; width: 48%; aspect-ratio: 2.2 / 1; transform: translate(-50%, -50%); background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(120,180,255,1), rgba(60,130,255,.55) 30%, rgba(40,90,255,0) 70%); mix-blend-mode: screen; opacity: 0; pointer-events: none; }
+.hero-anim.is-static .ha-char img { filter: none; }
+.hero-anim.is-static .ha-glow { opacity: 1; }
+.hero-anim.is-static .ha-tint.red { opacity: .5; }
+.hero-anim.is-static .ha-pad { opacity: .85; }
+@media (max-width: 760px) { .hero-anim { margin-top: 32px; min-height: 0; } .hero-anim .ha-char { max-width: 280px; } }
