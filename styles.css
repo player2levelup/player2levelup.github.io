@@ -1321,3 +1321,60 @@ footer a:hover { text-decoration: underline; }
 @media (max-width: 760px) {
   .squad { grid-template-columns: 1fr; gap: 40px; }
 }
+
+
+/* ─── STORY HOOK ────────────────────────────────────────────────── */
+.hook {
+  font-size: 1.22rem;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--white);
+  max-width: 540px;
+  margin-bottom: 16px;
+}
+.proof-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 4px; max-width: 540px; }
+.proof-list li {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--red);
+  background: var(--red-glow);
+  border-radius: 3px;
+  padding: 6px 12px;
+}
+.ticket-title span + span { color: var(--white); }
+
+/* ─── SQUAD UP TERMS ────────────────────────────────────────────── */
+.terms {
+  margin-top: 22px;
+  max-width: 560px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+}
+.terms summary {
+  cursor: pointer;
+  padding: 14px 18px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey-lt);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.terms summary::-webkit-details-marker { display: none; }
+.terms summary::after { content: '+'; color: var(--red); font-size: 1.3rem; line-height: 1; }
+.terms[open] summary::after { content: '−'; }
+.terms summary:hover { color: var(--white); }
+.terms ol { padding: 0 18px 18px 36px; display: grid; gap: 8px; }
+.terms li { color: var(--grey-lt); font-size: 0.92rem; line-height: 1.55; }
+.terms li::marker { color: var(--red); font-weight: 700; }
+
+.price-line { display: flex; align-items: baseline; gap: 10px; margin: -8px 0 20px; color: var(--grey-lt); font-size: 0.95rem; }
+.price-big { font-family: var(--font-display); font-weight: 900; font-size: 2.4rem; line-height: 1; color: var(--red); font-variant-numeric: tabular-nums; }
