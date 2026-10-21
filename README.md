@@ -1,3 +1,3 @@
 # Player 2
 
-Level up your game. Website for Player 2 gaming mentoring.
+Level up your game. Website for Player 2 gaming mentoring. Live at www.player2levelup.com.
