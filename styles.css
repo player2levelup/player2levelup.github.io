@@ -752,6 +752,28 @@ footer p {
   *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
 
+/* ---------- email sign-up ---------- */
+.signup { padding: 80px clamp(16px, 5vw, 60px); background: #0d0d0f; border-top: 1px solid rgba(255,255,255,0.06); }
+.signup-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+.signup-sub { color: var(--grey-lt); margin: 0 0 28px; font-size: 1.05rem; }
+.signup-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; text-align: left; }
+.signup-field.full { grid-column: 1 / -1; }
+.signup-field label { display: block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-lt); margin-bottom: 6px; }
+.signup-field label small { font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--grey); }
+.signup-field input, .signup-field select { width: 100%; padding: 14px 16px; background: #16161a; border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; color: var(--white); font: inherit; font-size: 1rem; }
+.signup-field input:focus, .signup-field select:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px var(--red-glow); }
+.signup-field select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23cccccc' stroke-width='2'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+.signup-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.signup-consent { display: flex; gap: 12px; align-items: flex-start; text-align: left; margin: 18px 0 22px; color: var(--grey-lt); font-size: 0.95rem; cursor: pointer; }
+.signup-consent input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--red); flex: 0 0 20px; }
+.signup .btn-primary { width: 100%; max-width: 320px; }
+.signup-error { color: #ff6b6b; margin: 14px 0 0; font-weight: 600; }
+.signup-note { color: var(--grey); font-size: 0.85rem; margin: 24px 0 0; line-height: 1.5; }
+.signup-thanks { padding: 30px 0; }
+.signup-tick { width: 64px; height: 64px; margin: 0 auto 20px; border-radius: 50%; background: var(--red); color: var(--white); font-size: 2rem; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.signup-thanks p { color: var(--grey-lt); }
+@media (max-width: 600px) { .signup-fields { grid-template-columns: 1fr; } }
+
 /* ─── SHARED EXTRAS ─────────────────────────────────────────────── */
 section[id] { scroll-margin-top: 72px; }
 

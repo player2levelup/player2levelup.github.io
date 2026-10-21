@@ -17,7 +17,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=202610211348">
+<link rel="stylesheet" href="styles.css?v=202610212044">
 </head>
 <body>
 <!-- NAV -->
@@ -305,6 +305,52 @@
   </a>
 </section>
 
+<!-- EMAIL SIGN-UP -->
+<section class="signup" id="signup">
+  <div class="signup-inner">
+    <div id="formWrap">
+      <p class="section-eyebrow">Stay in the loop</p>
+      <h2 class="section-title">Get Player 2 news</h2>
+      <p class="signup-sub">Event dates, new games on the server and offers. No spam, unsubscribe any time.</p>
+      <form id="signupForm" novalidate>
+        <div class="signup-fields">
+          <div class="signup-field">
+            <label for="su-name">First name <small>(optional)</small></label>
+            <input id="su-name" name="name" type="text" autocomplete="given-name" maxlength="60" placeholder="Alex">
+          </div>
+          <div class="signup-field">
+            <label for="su-who">I am a</label>
+            <select id="su-who" name="who" required>
+              <option value="" disabled selected>Choose one</option>
+              <option>Parent or carer</option>
+              <option>Young person (13+)</option>
+              <option>School, college or professional</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="signup-field full">
+            <label for="su-email">Email</label>
+            <input id="su-email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="signup-hp" aria-hidden="true"><label for="su-website">Leave this empty</label><input id="su-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <label class="signup-consent" for="su-consent">
+          <input id="su-consent" name="consent" type="checkbox" required>
+          <span>Yes, email me Player 2 updates. I can unsubscribe any time.</span>
+        </label>
+        <button class="btn-primary" type="submit" id="goBtn">Sign me up</button>
+        <p class="signup-error" id="formError" role="alert" hidden></p>
+      </form>
+      <p class="signup-note"><strong>Parents:</strong> the Discord community is for ages 13 to 17. Under 13? Sign up anyway and we'll tell you when Player 2 Juniors launches. We only use your email for Player 2 news and never share it.</p>
+    </div>
+    <div class="signup-thanks" id="thanks" hidden tabindex="-1">
+      <div class="signup-tick" aria-hidden="true">✓</div>
+      <h2 class="section-title">You're on the list</h2>
+      <p>Thanks for signing up. We'll email you when there's something worth knowing. See you in the lobby.</p>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo"><span>PLAYER</span> 2</div>
@@ -312,6 +358,6 @@
   <p>Safe Gaming Community &amp; One-2-One Sessions · <a href="https://whop.com/player2" target="_blank" rel="noopener">whop.com/player2</a></p>
 </footer>
 
-<script src="site.js?v=202610211348"></script>
+<script src="site.js?v=202610212044"></script>
 </body>
 </html>
