@@ -17,7 +17,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=202610212110">
+<link rel="stylesheet" href="styles.css?v=202610212127">
 </head>
 <body>
 <!-- NAV -->
@@ -43,7 +43,7 @@
     <h1 class="page-title">Get the <span class="line-red">Esports Experience</span></h1>
     <p class="page-lede">Tournaments for Player 2 members, with real competition and real prizes in a safe, friendly space. You don't have to be heading pro to feel what it's like.</p>
     <div class="hero-buttons">
-      <a href="https://whop.com/player2" target="_blank" rel="noopener" class="btn-primary">Join to Enter</a>
+      <a href="https://whop.com/player2" target="_blank" rel="noopener noreferrer" class="btn-primary">Join to Enter</a>
       <a href="#how" class="btn-secondary">How It Works</a>
     </div>
   </div>
@@ -88,40 +88,8 @@
   <div class="event-list" id="eventList">
     <div class="event-empty">
       <strong>No dates announced yet</strong>
-      <p>Tournament dates are being planned. Pop your email in and we'll tell you the moment the first one is confirmed. Platinum members hear 48 hours before everyone else.</p>
-      <div id="formWrap" class="event-signup">
-        <form id="signupForm" novalidate>
-          <div class="signup-fields">
-            <div class="signup-field">
-              <label for="su-who">I am a</label>
-              <select id="su-who" name="who" required>
-                <option value="" disabled selected>Choose one</option>
-                <option>Parent or carer</option>
-                <option>Young person (13+)</option>
-                <option>School, college or professional</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="signup-field">
-              <label for="su-email">Email</label>
-              <input id="su-email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com">
-            </div>
-          </div>
-          <input type="hidden" name="name" value="">
-          <div class="signup-hp" aria-hidden="true"><label for="su-website">Leave this empty</label><input id="su-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-          <label class="signup-consent" for="su-consent">
-            <input id="su-consent" name="consent" type="checkbox" required>
-            <span>Yes, email me when event dates are announced. I can unsubscribe any time.</span>
-          </label>
-          <button class="btn-primary" type="submit" id="goBtn">Tell me first</button>
-          <p class="signup-error" id="formError" role="alert" hidden></p>
-        </form>
-      </div>
-      <div class="signup-thanks" id="thanks" hidden tabindex="-1">
-        <div class="signup-tick" aria-hidden="true">✓</div>
-        <strong>You're on the list</strong>
-        <p>We'll email you as soon as the first date is confirmed.</p>
-      </div>
+      <p>Tournament dates are being planned and will be posted here and in the Player 2 Discord as soon as they're confirmed. Platinum members hear 48 hours before everyone else.</p>
+      <a href="index.html#membership" class="btn-primary">Choose Your Membership</a>
     </div>
   </div>
 </section>
@@ -178,7 +146,7 @@
         </div>
         <div class="event-buy">
           <span class="event-price">${esc(e.price)}</span>
-          <a class="btn-primary btn-small" href="${esc(e.ticketUrl || 'https://whop.com/player2/esports-tournament-ticket')}" target="_blank" rel="noopener">Get Tickets</a>
+          <a class="btn-primary btn-small" href="${esc(e.ticketUrl || 'https://whop.com/player2/esports-tournament-ticket')}" target="_blank" rel="noopener noreferrer">Get Tickets</a>
         </div>
       </article>`).join('');
   })();
@@ -188,9 +156,9 @@
 <footer>
   <div class="footer-logo"><span>PLAYER</span> 2 <em>LEVEL UP</em></div>
   <p>© 2026 Player 2 · <a href="mailto:player2levelup@gmail.com">player2levelup@gmail.com</a></p>
-  <p>Safe Gaming Community &amp; One-2-One Sessions · <a href="https://whop.com/player2" target="_blank" rel="noopener">whop.com/player2</a></p>
+  <p>Safe Gaming Community &amp; One-2-One Sessions · <a href="https://whop.com/player2" target="_blank" rel="noopener noreferrer">whop.com/player2</a></p>
 </footer>
 
-<script src="site.js?v=202610212110"></script>
+<script src="site.js?v=202610212127"></script>
 </body>
 </html>

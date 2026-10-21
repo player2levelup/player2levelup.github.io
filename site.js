@@ -27,29 +27,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 /* Rory's age from his date of birth */
 (function(){var e=document.getElementById('roryAge');if(!e)return;var d=new Date(2007,11,4),n=new Date(),a=n.getFullYear()-d.getFullYear();if(n.getMonth()<11||(n.getMonth()===11&&n.getDate()<4))a--;e.textContent=a;})();
 
-/* ---------- email sign-up (Google Form backend) ---------- */
-(function () {
-  var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfogzTPNDLoLNfwjyiERMY45kn8RNplYWE3NzsrKSmz7qvfKg/formResponse';
-  var FIELDS = { email: 'entry.868799252', name: 'entry.1434295779', who: 'entry.156238685', consent: 'entry.310329444' };
-  var form = document.getElementById('signupForm'); if (!form) return;
-  var btn = document.getElementById('goBtn'), err = document.getElementById('formError'), wrap = document.getElementById('formWrap'), thanks = document.getElementById('thanks');
-  function showError(msg, el) { err.textContent = msg; err.hidden = false; if (el) el.focus(); }
-  form.addEventListener('submit', function (e) {
-    e.preventDefault(); err.hidden = true;
-    var email = form.email.value.trim(), who = form.who.value;
-    if (form.website.value) return;
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return showError('Please enter a valid email address.', form.email);
-    if (!who) return showError('Please choose who you are.', form.who);
-    if (!form.consent.checked) return showError('Please tick the box so we can email you.', form.consent);
-    var data = new URLSearchParams();
-    data.append(FIELDS.email, email); data.append(FIELDS.name, form.name.value.trim().slice(0, 60)); data.append(FIELDS.who, who); data.append(FIELDS.consent, 'Yes, email me Player 2 updates');
-    btn.disabled = true; btn.textContent = 'Signing you up\u2026';
-    fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body: data })
-      .then(function () { wrap.hidden = true; thanks.hidden = false; thanks.focus(); })
-      .catch(function () { btn.disabled = false; btn.textContent = 'Sign me up'; showError('Something went wrong. Please try again, or email player2levelup@gmail.com.'); });
-  });
-})();
-
 /* ---------- hero animation: remote click, TV glare, controller glow ---------- */
 (function () {
   var root = document.getElementById('heroAnim');
