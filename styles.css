@@ -506,7 +506,7 @@ nav {
 
 .tier-perks li.new {
   color: var(--white);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .tier-perks li::before {
