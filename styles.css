@@ -1398,3 +1398,7 @@ footer a:hover { text-decoration: underline; }
 .hero-anim.is-static .ha-tint.red { opacity: .5; }
 .hero-anim.is-static .ha-pad { opacity: .85; }
 @media (max-width: 760px) { .hero-anim { margin-top: 32px; min-height: 0; } .hero-anim .ha-char { max-width: 280px; } }
+
+/* Tier cards: each card is as long as its perk list, so higher tiers look bigger; intros line up */
+.tiers { align-items: start; }
+.tier-tag { margin-bottom: 18px; }

@@ -95,3 +95,20 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
   io.observe(root);
 })();
+
+/* Line up the tier intro lines so titles, intros and perk lists start at the same height */
+(function () {
+  function alignTierTags() {
+    var tags = [].slice.call(document.querySelectorAll('.tier-tag'));
+    if (!tags.length) return;
+    tags.forEach(function (t) { t.style.minHeight = ''; });
+    var tops = tags.map(function (t) { return t.getBoundingClientRect().top; });
+    if (Math.max.apply(null, tops) - Math.min.apply(null, tops) > 4) return;
+    var h = Math.max.apply(null, tags.map(function (t) { return t.offsetHeight; }));
+    tags.forEach(function (t) { t.style.minHeight = h + 'px'; });
+  }
+  alignTierTags();
+  window.addEventListener('load', alignTierTags);
+  window.addEventListener('resize', alignTierTags);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(alignTierTags);
+})();
