@@ -27,62 +27,52 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 /* Rory's age from his date of birth */
 (function(){var e=document.getElementById('roryAge');if(!e)return;var d=new Date(2007,11,4),n=new Date(),a=n.getFullYear()-d.getFullYear();if(n.getMonth()<11||(n.getMonth()===11&&n.getDate()<4))a--;e.textContent=a;})();
 
-/* ---------- hero animation: remote click, TV glare, controller glow ---------- */
+/* ---------- hero animation: TV comes on, room warms to red, controller glows (smooth, no flicker) ---------- */
 (function () {
   var root = document.getElementById('heroAnim');
   if (!root) return;
   var $ = function (id) { return document.getElementById(id); };
   var mascot = $('haMascot'), tintR = $('haTintR'), tintB = $('haTintB'), pad = $('haPad'), ch = $('haChar');
   var glow = $('haGlow'), glowB = $('haGlowB'), glare = $('haGlare');
-  var arm = $('haArm'), armPath = $('haArmPath'), armPath2 = $('haArmPath2'), hand = $('haHand'), btn = $('haBtn');
 
   var reduce = false;
   try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
   if (reduce) { root.classList.add('is-static'); return; }
 
   function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
-  function lerp(a, b, p) { return a + (b - a) * p; }
   function seg(t, a, b) { return clamp((t - a) / (b - a), 0, 1); }
   function ease(p) { return p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; }
-  function keys(t, k) {
-    if (t <= k[0][0]) return k[0][1];
-    for (var i = 1; i < k.length; i++) if (t <= k[i][0]) return lerp(k[i-1][1], k[i][1], (t - k[i-1][0]) / (k[i][0] - k[i-1][0]));
-    return k[k.length - 1][1];
-  }
-  var SETTLE = 0.5, REACH0 = 0.9, REACH1 = 1.6, CLICK = 1.85, GLARE = 2.0, TUCK0 = 3.1, TUCK1 = 3.7, PAD_ON = 4.0;
-  var FLICK = [[2.0,0],[2.06,.9],[2.12,.15],[2.2,.6],[2.27,.25],[2.38,1],[2.5,.7],[2.65,1]];
-  var SH = { x: 505, y: 430 }, REST = { x: 560, y: 560 }, OUT = { x: 700, y: 520 };
+  function smooth(t, a, b) { return ease(seg(t, a, b)); }
+
+  // Timeline (seconds): room fades in, TV light rises, room warms to red, controller glow switches on
+  var ROOM = [0, 0.6], TV = [0.5, 1.7], WARM = [1.5, 2.9], PAD = [2.6, 3.2];
 
   function render(t) {
-    var room = seg(t, 0, SETTLE);
-    var a = t < REACH1 ? ease(seg(t, REACH0, REACH1)) : (t < TUCK0 ? 1 : 1 - ease(seg(t, TUCK0, TUCK1)));
-    var press = Math.sin(Math.PI * seg(t, CLICK - .08, CLICK + .12));
-    var hx = lerp(REST.x, OUT.x, a), hy = lerp(REST.y, OUT.y, a) + 6 * press;
-    var ex = lerp(540, 610, a), ey = lerp(560, 600, a);
-    var d = 'M' + SH.x + ',' + SH.y + ' L' + ex + ',' + ey + ' L' + hx + ',' + hy;
-    armPath.setAttribute('d', d); armPath2.setAttribute('d', d);
-    hand.setAttribute('transform', 'translate(' + hx + ',' + hy + ') rotate(' + lerp(60, 118, a) + ')');
-    arm.setAttribute('opacity', a < .02 ? '0' : '1');
-    btn.setAttribute('fill', press > .3 ? '#ff5a5a' : '#cc0000');
+    var room = smooth(t, ROOM[0], ROOM[1]);
+    var tv = smooth(t, TV[0], TV[1]);
+    var warm = smooth(t, WARM[0], WARM[1]);
+    var settled = seg(t, WARM[1], WARM[1] + 1);
+    // very gentle, slow ambient movement once settled (no flicker)
+    var amb = settled * (0.012 * Math.sin(t * 1.1) + 0.008 * Math.sin(t * 0.47 + 1.3));
+    var light = clamp(tv + amb, 0, 1.02);
 
-    var L = keys(t, FLICK);
-    if (t > 2.65) L = 1 + .035 * Math.sin(t * 7.3) + .025 * Math.sin(t * 3.1 + 1) - .02 * Math.max(0, Math.sin(t * 0.9 + 2));
-    var Lc = clamp(L, 0, 1.08), L1 = clamp(L, 0, 1);
-    mascot.style.filter = 'brightness(' + ((.22 + .8 * Lc) * room).toFixed(3) + ') saturate(' + (.7 + .3 * L1).toFixed(3) + ')';
-    var warm = seg(t, 2.4, 3.0), shimmer = t > 3.0 ? .5 + .5 * Math.sin(t * 1.25) : 0;
-    var flash = Math.sin(Math.PI * seg(t, GLARE, GLARE + .5)) * .9 + (t > GLARE + .5 ? .12 + .06 * Math.sin(t * 5) : 0);
-    glare.style.opacity = String(clamp(flash * L1, 0, 1) * (1 - .5 * warm));
-    tintR.style.opacity = String(Lc * (.12 + .4 * warm));
-    tintB.style.opacity = String(L1 * (.4 * (1 - warm) + .12 * shimmer));
-    glow.style.opacity = String(Lc * (.25 + .75 * warm));
-    glowB.style.opacity = String(L1 * (.7 * (1 - warm) + .25 * shimmer));
-    var breathe = t > 3.0 ? Math.sin((t - 3.0) * 2.1) : 0;
-    ch.style.transform = 'scaleY(' + (1 + .005 * breathe) + ')';
-    ch.style.opacity = String(room);
-    var padOn = t < PAD_ON ? 0 : (t < PAD_ON + .12 ? seg(t, PAD_ON, PAD_ON + .12) : .65 + .35 * (.5 + .5 * Math.sin((t - PAD_ON) * 3.4)));
-    pad.style.opacity = String(padOn * .85);
+    mascot.style.filter = 'brightness(' + ((.22 + .78 * light) * (.4 + .6 * room)).toFixed(3) + ') saturate(' + (.7 + .3 * tv).toFixed(3) + ')';
+    glare.style.opacity = String((tv * .35 * (1 - .6 * warm)).toFixed(3));
+    tintB.style.opacity = String((tv * (.35 * (1 - warm) + .1 * warm)).toFixed(3));
+    glowB.style.opacity = String((tv * (.6 * (1 - warm) + .2 * warm)).toFixed(3));
+    tintR.style.opacity = String((light * (.1 + .42 * warm)).toFixed(3));
+    glow.style.opacity = String((light * (.2 + .8 * warm)).toFixed(3));
+
+    var p = smooth(t, PAD[0], PAD[1]);
+    var pulse = .8 + .2 * Math.sin(Math.max(0, t - PAD[1]) * 2.2);
+    pad.style.opacity = String((p * pulse * .85).toFixed(3));
+
+    var breathe = settled * Math.sin((t - WARM[1]) * 2.0);
+    ch.style.transform = 'scaleY(' + (1 + .004 * breathe).toFixed(4) + ')';
+    ch.style.opacity = String(room.toFixed(3));
   }
 
+  render(0);
   var start = null;
   function loop(now) {
     if (start === null) start = now;
