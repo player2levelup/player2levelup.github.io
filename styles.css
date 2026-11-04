@@ -1402,3 +1402,19 @@ footer a:hover { text-decoration: underline; }
 /* Tier cards: each card is as long as its perk list, so higher tiers look bigger; intros line up */
 .tiers { align-items: start; }
 .tier-tag { margin-bottom: 18px; }
+
+/* ---------- Free trial ---------- */
+.trial { padding: 80px clamp(16px, 5vw, 80px); background: radial-gradient(ellipse at 12% 0%, rgba(204,0,0,0.22), transparent 55%), var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.trial-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; }
+.trial-inner > * { min-width: 0; }
+.trial .section-title { margin-bottom: 16px; }
+.trial .section-title .line-red { color: var(--red); display: block; }
+.trial-lead { color: var(--grey-lt); font-size: 1.05rem; margin-bottom: 26px; max-width: 520px; }
+.trial-small { margin-top: 14px; color: var(--grey); font-size: .92rem; letter-spacing: .02em; }
+.trial-steps { list-style: none; display: grid; gap: 12px; }
+.trial-steps li { display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
+.trial-num { width: 44px; height: 44px; border-radius: 50%; background: var(--red); color: var(--white); font-family: var(--font-display); font-weight: 900; font-size: 1.4rem; display: grid; place-items: center; }
+.trial-steps h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 4px; }
+.trial-steps p { color: var(--grey-lt); font-size: .97rem; }
+.trial-note { max-width: 1180px; margin: 28px auto 0; color: var(--grey); font-size: .9rem; }
+@media (max-width: 860px) { .trial-inner { grid-template-columns: 1fr; gap: 32px; } }
