@@ -1451,3 +1451,22 @@ footer a:hover { text-decoration: underline; }
   .ts-top { font-size: .9rem; } .ts-big { font-size: 2.15rem; } .ts-small { font-size: .62rem; }
 }
 @media (prefers-reduced-motion: reduce) { .trial-bar, .btn-trial { animation: none; } }
+
+/* ─── FAQ ───────────────────────────────────────────────────────── */
+.faq { padding: 80px clamp(16px, 5vw, 80px); border-top: 1px solid var(--border); }
+.faq .section-head p:last-child { color: var(--grey-lt); }
+.faq .section-head a { color: var(--white); text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.faq-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; align-items: start; }
+.faq-group h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--red); }
+.faq-item { border: 1px solid var(--border); border-radius: 4px; background: var(--surface); margin-bottom: 10px; }
+.faq-item summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; font-weight: 600; font-size: 1.02rem; line-height: 1.4; color: var(--white); }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: ''; flex: 0 0 auto; width: 9px; height: 9px; margin-right: 4px; border-right: 2px solid var(--red); border-bottom: 2px solid var(--red); transform: translateY(-3px) rotate(45deg); transition: transform 0.2s ease; }
+.faq-item[open] summary::after { transform: translateY(2px) rotate(-135deg); }
+.faq-item summary:hover, .faq-item[open] summary { color: var(--white); background: var(--bg3); }
+.faq-item summary:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+.faq-answer { padding: 2px 18px 18px; color: var(--grey-lt); line-height: 1.7; }
+.faq-answer a { color: var(--white); text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.faq-answer strong { color: var(--white); }
+@media (max-width: 860px) { .faq-groups { grid-template-columns: 1fr; gap: 32px; } }
+@media (prefers-reduced-motion: reduce) { .faq-item summary::after { transition: none; } }
